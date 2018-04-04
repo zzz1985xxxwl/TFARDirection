@@ -8,5 +8,4 @@ target 'TFARDirection' do
   # Pods for TFARDirection
   # The MapboxARKit pod
   pod 'MapboxARKit', :git => 'https://github.com/mapbox/mapbox-arkit-ios.git'
-  pod 'ARCL'
 end
