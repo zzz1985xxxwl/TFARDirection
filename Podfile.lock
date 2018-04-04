@@ -1,0 +1,27 @@
+PODS:
+  - ARCL (1.0.2)
+  - MapboxARKit (0.0.1):
+    - Turf
+  - Turf (0.1.0)
+
+DEPENDENCIES:
+  - ARCL
+  - MapboxARKit (from `https://github.com/mapbox/mapbox-arkit-ios.git`)
+
+EXTERNAL SOURCES:
+  MapboxARKit:
+    :git: https://github.com/mapbox/mapbox-arkit-ios.git
+
+CHECKOUT OPTIONS:
+  MapboxARKit:
+    :commit: 43e7c08e460a8cc4835fb7de17924937274f60ef
+    :git: https://github.com/mapbox/mapbox-arkit-ios.git
+
+SPEC CHECKSUMS:
+  ARCL: 88300cadfbdd6a9288ca17ad18d3ac972d6cb1e6
+  MapboxARKit: 12a4d1ff584b22feb62f44eed86f9e4522b1da70
+  Turf: c45075872e7dc2d8fd34525511f2cceef69c2079
+
+PODFILE CHECKSUM: 0c7958a56b71fabd388680f799119ee3cc14ef35
+
+COCOAPODS: 1.4.0
