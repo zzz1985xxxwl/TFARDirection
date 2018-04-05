@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import CoreLocation
 
 extension MKPolyline {
     var coordinates: [CLLocationCoordinate2D] {
@@ -18,3 +19,4 @@ extension MKPolyline {
         return coords
     }
 }
+

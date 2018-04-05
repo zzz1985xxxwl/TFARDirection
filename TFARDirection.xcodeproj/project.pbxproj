@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5BF1E1B923B194A2CD5430FF /* Pods_TFARDirection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928FD10F9BFF1F22E66835B2 /* Pods_TFARDirection.framework */; };
+		DF1796AD207515DF00E77234 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1796AC207515DF00E77234 /* MapViewController.swift */; };
+		DF1796AF2076DF8900E77234 /* TFAnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */; };
 		DFCC1ECF207468DA00CC0677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC1ECE207468DA00CC0677 /* AppDelegate.swift */; };
 		DFCC1ED1207468DA00CC0677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC1ED0207468DA00CC0677 /* ViewController.swift */; };
 		DFCC1ED4207468DA00CC0677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCC1ED2207468DA00CC0677 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		19DC6AA9B19D3E1E33604233 /* Pods-TFARDirection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFARDirection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TFARDirection/Pods-TFARDirection.debug.xcconfig"; sourceTree = "<group>"; };
 		928FD10F9BFF1F22E66835B2 /* Pods_TFARDirection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFARDirection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29B3655C3674678158A6E22 /* Pods-TFARDirection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFARDirection.release.xcconfig"; path = "Pods/Target Support Files/Pods-TFARDirection/Pods-TFARDirection.release.xcconfig"; sourceTree = "<group>"; };
+		DF1796AC207515DF00E77234 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFAnnotationManager.swift; sourceTree = "<group>"; };
 		DFCC1ECB207468DA00CC0677 /* TFARDirection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFARDirection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCC1ECE207468DA00CC0677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCC1ED0207468DA00CC0677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				DFCC1ED7207468DB00CC0677 /* LaunchScreen.storyboard */,
 				DFCC1EDA207468DB00CC0677 /* Info.plist */,
 				DFCC1EE02074912000CC0677 /* MKPolyline.swift */,
+				DF1796AC207515DF00E77234 /* MapViewController.swift */,
+				DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */,
 			);
 			path = TFARDirection;
 			sourceTree = "<group>";
@@ -222,8 +228,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFCC1ED1207468DA00CC0677 /* ViewController.swift in Sources */,
+				DF1796AF2076DF8900E77234 /* TFAnnotationManager.swift in Sources */,
 				DFCC1ECF207468DA00CC0677 /* AppDelegate.swift in Sources */,
 				DFCC1EE12074912000CC0677 /* MKPolyline.swift in Sources */,
+				DF1796AD207515DF00E77234 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +380,10 @@
 				DEVELOPMENT_TEAM = 4457YDG57F;
 				INFOPLIST_FILE = TFARDirection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.delianc.TFARDirection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -389,7 +400,10 @@
 				DEVELOPMENT_TEAM = 4457YDG57F;
 				INFOPLIST_FILE = TFARDirection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.delianc.TFARDirection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
