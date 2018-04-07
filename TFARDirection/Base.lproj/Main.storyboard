@@ -47,31 +47,49 @@
                                             <action selector="buttonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBG-EH-V6A"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VJ-Nn-g9W">
-                                        <rect key="frame" x="8" y="297" width="67" height="30"/>
-                                        <state key="normal" title="transform"/>
-                                        <connections>
-                                            <action selector="testTransform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5xa-J7-Ion"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-F5-1rz">
                                         <rect key="frame" x="8" y="638" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-9n-kFN">
+                                        <rect key="frame" x="8" y="142" width="30" height="30"/>
+                                        <state key="normal" title="++"/>
+                                        <connections>
+                                            <action selector="plusTransform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jOV-wr-6pe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBC-It-VvJ">
+                                        <rect key="frame" x="8" y="180" width="30" height="30"/>
+                                        <state key="normal" title="--"/>
+                                        <connections>
+                                            <action selector="minusTransform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IRK-M7-bMe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-Pr-QlP">
+                                        <rect key="frame" x="8" y="218" width="35" height="30"/>
+                                        <state key="normal" title="reset"/>
+                                        <connections>
+                                            <action selector="resetTransform:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MBA-iK-Wp3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.49285637842465752" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="jOf-9n-kFN" firstAttribute="top" secondItem="rDA-9d-6At" secondAttribute="bottom" constant="8" id="4RV-CJ-1Ko"/>
                                     <constraint firstItem="BnB-ih-UKV" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="5hM-4w-Eby"/>
                                     <constraint firstAttribute="bottom" secondItem="6rI-F5-1rz" secondAttribute="bottom" constant="8" id="6Zv-8o-WSG"/>
                                     <constraint firstItem="rDA-9d-6At" firstAttribute="top" secondItem="wzf-ow-wyQ" secondAttribute="bottom" constant="8" id="87z-dk-Hgw"/>
-                                    <constraint firstItem="9VJ-Nn-g9W" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="J6M-wF-ncw"/>
+                                    <constraint firstItem="Oxs-Pr-QlP" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="COu-0P-SiF"/>
                                     <constraint firstItem="wzf-ow-wyQ" firstAttribute="top" secondItem="BnB-ih-UKV" secondAttribute="bottom" constant="8" id="OYM-ic-hje"/>
+                                    <constraint firstItem="EBC-It-VvJ" firstAttribute="top" secondItem="jOf-9n-kFN" secondAttribute="bottom" constant="8" id="S5n-KG-Mhv"/>
+                                    <constraint firstItem="Oxs-Pr-QlP" firstAttribute="top" secondItem="EBC-It-VvJ" secondAttribute="bottom" constant="8" id="SRA-GZ-LKo"/>
+                                    <constraint firstItem="jOf-9n-kFN" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="TgW-ZP-8Me"/>
                                     <constraint firstItem="rDA-9d-6At" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="Vy9-78-vrj"/>
                                     <constraint firstAttribute="width" constant="200" id="ZOh-mo-TWO"/>
-                                    <constraint firstItem="9VJ-Nn-g9W" firstAttribute="top" secondItem="rDA-9d-6At" secondAttribute="bottom" constant="163" id="fJ3-ou-s8x"/>
                                     <constraint firstItem="wzf-ow-wyQ" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="gYI-aQ-1gB"/>
+                                    <constraint firstItem="EBC-It-VvJ" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="m4f-Ua-HeM"/>
                                     <constraint firstItem="BnB-ih-UKV" firstAttribute="top" secondItem="YK5-ZY-Dp3" secondAttribute="top" constant="28" id="ox2-cp-FdG"/>
                                     <constraint firstItem="6rI-F5-1rz" firstAttribute="leading" secondItem="YK5-ZY-Dp3" secondAttribute="leading" constant="8" id="pJc-dF-5hk"/>
                                 </constraints>

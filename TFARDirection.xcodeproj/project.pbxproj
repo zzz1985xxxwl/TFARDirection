@@ -10,6 +10,7 @@
 		5BF1E1B923B194A2CD5430FF /* Pods_TFARDirection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928FD10F9BFF1F22E66835B2 /* Pods_TFARDirection.framework */; };
 		DF1796AD207515DF00E77234 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1796AC207515DF00E77234 /* MapViewController.swift */; };
 		DF1796AF2076DF8900E77234 /* TFAnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */; };
+		DF1796B92077157900E77234 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1796B82077157900E77234 /* art.scnassets */; };
 		DFCC1ECF207468DA00CC0677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC1ECE207468DA00CC0677 /* AppDelegate.swift */; };
 		DFCC1ED1207468DA00CC0677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCC1ED0207468DA00CC0677 /* ViewController.swift */; };
 		DFCC1ED4207468DA00CC0677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFCC1ED2207468DA00CC0677 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		D29B3655C3674678158A6E22 /* Pods-TFARDirection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFARDirection.release.xcconfig"; path = "Pods/Target Support Files/Pods-TFARDirection/Pods-TFARDirection.release.xcconfig"; sourceTree = "<group>"; };
 		DF1796AC207515DF00E77234 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFAnnotationManager.swift; sourceTree = "<group>"; };
+		DF1796B82077157900E77234 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		DFCC1ECB207468DA00CC0677 /* TFARDirection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFARDirection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCC1ECE207468DA00CC0677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFCC1ED0207468DA00CC0677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				DFCC1EE02074912000CC0677 /* MKPolyline.swift */,
 				DF1796AC207515DF00E77234 /* MapViewController.swift */,
 				DF1796AE2076DF8900E77234 /* TFAnnotationManager.swift */,
+				DF1796B82077157900E77234 /* art.scnassets */,
 			);
 			path = TFARDirection;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFCC1ED9207468DB00CC0677 /* LaunchScreen.storyboard in Resources */,
+				DF1796B92077157900E77234 /* art.scnassets in Resources */,
 				DFCC1ED6207468DB00CC0677 /* Assets.xcassets in Resources */,
 				DFCC1ED4207468DA00CC0677 /* Main.storyboard in Resources */,
 			);

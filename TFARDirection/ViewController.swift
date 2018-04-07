@@ -75,11 +75,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reRoute(_ sender: Any) {
+        
         self.direction(to: self.toLocation!)
     }
-    @IBAction func testTransform(_ sender: Any) {
-        //let newX = self.sceneView.scene.rootNode.position.x+10
-        //self.sceneView.scene.rootNode.position = SCNVector3(100,100,0)
+    
+    @IBAction func plusTransform(_ sender: Any) {
+        self.tfAnnotationManager?.change(degree: 1)
+    }
+    
+    @IBAction func minusTransform(_ sender: Any) {
+        self.tfAnnotationManager?.change(degree: -1)
+    }
+    
+    @IBAction func resetTransform(_ sender: Any) {
+         self.tfAnnotationManager?.reset()
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,7 +114,7 @@ extension ViewController {
     func startSession(){
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravityAndHeading
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        sceneView.session.run(configuration, options: [.resetTracking,.removeExistingAnchors])
         
     }
     
@@ -117,8 +126,8 @@ extension ViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravityAndHeading
         sceneView.session.run(configuration,  options: .resetTracking)
-        self.annotationManager?.removeAllAnnotations()
-        self.addAnnotations()
+        //self.annotationManager?.removeAllAnnotations()
+        //self.addAnnotations()
     }
     
     func calloutImage(location:CLLocation) -> UIImage? {
@@ -172,17 +181,21 @@ extension ViewController {
             return
         }
         let polyline = self.route?.polyline
+        self.resetSession()
         self.annotationManager?.originLocation = getUserLocation()
         self.annotationManager?.removeAllAnnotations()
+        self.tfAnnotationManager?.originLocation = getUserLocation()
+        self.tfAnnotationManager?.removeAll()
+ 
         //var userlocation = self.getUserLocation()
 //        let turfPolyline = Polyline([CLLocationCoordinate2DMake(userlocation.coordinate.latitude,userlocation.coordinate.longitude),CLLocationCoordinate2DMake(self.toLocation!.coordinate.latitude, self.toLocation!.coordinate.longitude)])
         let turfPolyline = Polyline(polyline!.coordinates)
         let metersPerNode: CLLocationDistance = 3
-        var annotationsToAdd:[TFAnnotation] = []
+        var annotationsToAdd:[Annotation] = []
         var index = 0
         let stridePoints = stride(from: metersPerNode, to: turfPolyline.distance() - metersPerNode, by: metersPerNode)
-        let cc:CLLocationDirection = turfPolyline.coordinates[0].direction(to: turfPolyline.coordinates[1])
-        print(cc)
+//        let cc:CLLocationDirection = turfPolyline.coordinates[0].direction(to: turfPolyline.coordinates[1])
+
         // Walk the route line and add a small AR node and map view annotation every metersPerNode
         for i in stridePoints {
             // Use Turf to find the coordinate of each incremented distance along the polyline
@@ -191,15 +204,16 @@ extension ViewController {
                 let interpolatedStepLocation = CLLocation(latitude: nextCoordinate.latitude, longitude: nextCoordinate.longitude)
                 //if(self.distanceFromCurrent(to: interpolatedStepLocation) < 500){
                 // Add an AR node
-                let annotation = TFAnnotation(location: interpolatedStepLocation, calloutImage:calloutImage(location: interpolatedStepLocation) )
+                let annotation = Annotation(location: interpolatedStepLocation, calloutImage:calloutImage(location: interpolatedStepLocation) )
                 annotation.index = index
-                annotation.direction = cc
+//                annotation.direction = cc
                 annotationsToAdd.append(annotation)
                 index = index + 1
                 // }
             }
         }
-        let annotation = TFAnnotation(location: CLLocation(latitude: polyline!.coordinates.last!.latitude, longitude: polyline!.coordinates.last!.longitude) , calloutImage:UIImage(named: "pin"))
+        let annotation = Annotation(location: CLLocation(latitude: polyline!.coordinates.last!.latitude, longitude: polyline!.coordinates.last!.longitude) , calloutImage:UIImage(named: "pin"))
+        annotation.isLast = true
         annotationsToAdd.append(annotation)
         
         // Update the annotation manager with the latest AR annotations
@@ -219,40 +233,40 @@ extension ViewController:AnnotationManagerDelegate{
     
     func node(for annotation: Annotation) -> SCNNode? {
         
-        let image = UIImage(named: "arrow")!
-        
-        let calloutGeometry = SCNPlane(width: 1.0, height: 1.0)
-        calloutGeometry.firstMaterial?.diffuse.contents = image
-        
-        let calloutNode = SCNNode(geometry: calloutGeometry)
-       // calloutNode.position = SCNVector3(x: 0, y: 10, z: 10)
-//Float(-Double.pi/2.0)
-       calloutNode.transform = SCNMatrix4MakeRotation(Float(-Double.pi/2.0), 1.0, 0.0, 0.0);
-       //let bearing = GLKMathDegreesToRadians(Float(self.annotationManager!.originLocation!.coordinate.direction(to: annotation.location.coordinate)))
-//      calloutNode.transform = SCNMatrix4Mult(calloutNode.transform,SCNMatrix4MakeRotation(Float(-Double.pi/2.0), 1.0, 0.0, 0.0), SCNMatrix4MakeRotation(Float(-90), 0.0, 1.0, 0.0));
-//        print(calloutNode.position)
-        if let d = annotation.direction{
-
-            //calloutNode.transform = SCNMatrix4Mult(calloutNode.transform, SCNMatrix4MakeRotation(Float((90.0-d).toRadians()),0.0, 1.0, 0.0))
-        }
-        
-        
-        //calloutNode.rotate(by: <#T##SCNQuaternion#>, aroundTarget: <#T##SCNVector3#>)
-        
-        return calloutNode
-
-        
-        
-//        let color = UIColor(red: 0, green:1, blue: 0, alpha: 1)
-//        let minAlpha:CGFloat = 0.3
-//        let maxIndex = 10
-//        var firstColor = color.withAlphaComponent(minAlpha)
-//        if let index = annotation.index {
-//            if index < maxIndex {
-//                firstColor = color.withAlphaComponent(1.0 - (1.0 - minAlpha)/10.0 * CGFloat(index))
-//            }
+//        let image = UIImage(named: "arrow")!
+//
+//        let calloutGeometry = SCNPlane(width: 1.0, height: 1.0)
+//        calloutGeometry.firstMaterial?.diffuse.contents = image
+//
+//        let calloutNode = SCNNode(geometry: calloutGeometry)
+//       // calloutNode.position = SCNVector3(x: 0, y: 10, z: 10)
+////Float(-Double.pi/2.0)
+//       calloutNode.transform = SCNMatrix4MakeRotation(Float(-Double.pi/2.0), 1.0, 0.0, 0.0);
+//       //let bearing = GLKMathDegreesToRadians(Float(self.annotationManager!.originLocation!.coordinate.direction(to: annotation.location.coordinate)))
+////      calloutNode.transform = SCNMatrix4Mult(calloutNode.transform,SCNMatrix4MakeRotation(Float(-Double.pi/2.0), 1.0, 0.0, 0.0), SCNMatrix4MakeRotation(Float(-90), 0.0, 1.0, 0.0));
+////        print(calloutNode.position)
+//        if let d = annotation.direction{
+//
+//            //calloutNode.transform = SCNMatrix4Mult(calloutNode.transform, SCNMatrix4MakeRotation(Float((90.0-d).toRadians()),0.0, 1.0, 0.0))
 //        }
-//        return createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
+//
+//
+//        //calloutNode.rotate(by: <#T##SCNQuaternion#>, aroundTarget: <#T##SCNVector3#>)
+//
+//        return calloutNode
+
+        
+        
+        let color = UIColor(red: 0, green:1, blue: 0, alpha: 1)
+        let minAlpha:CGFloat = 0.3
+        let maxIndex = 10
+        var firstColor = color.withAlphaComponent(minAlpha)
+        if let index = annotation.index {
+            if index < maxIndex {
+                firstColor = color.withAlphaComponent(1.0 - (1.0 - minAlpha)/10.0 * CGFloat(index))
+            }
+        }
+        return createSphereNode(with: 0.5, firstColor: firstColor, secondColor: UIColor.green)
     }
     
     func createSphereNode(with radius: CGFloat, firstColor: UIColor, secondColor: UIColor) -> SCNNode {
